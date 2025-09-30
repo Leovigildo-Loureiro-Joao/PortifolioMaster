@@ -7,7 +7,6 @@ import reactIcone from "../assets/icons8_react_native_2.png"
 import gitSvg from "../assets/github.svg"
 import projetImage from "../assets/Imagem 1.png"
 import projetImage2 from "../assets/Web 1920 – 10.png"
-import imagem from "../assets/Grupo12.png"
 import { useState } from "react"
 
 export const Projectos=()=>{
@@ -100,11 +99,11 @@ export const Projectos=()=>{
                 </div>
 
                 <div id="block-project" className="relative flex justify-between items-center gap-10 p-20">
-                    <div class="absolute inset-0 -z-10 flex justify-center top-20">
+                    <div class="absolute inset-0 -z-10 flex justify-center top-7">
 
-                        <div class="w-1/2 h-full bg-gray-100 -skew-y-6 origin-bottom-left"></div>
+                        <div class="w-[70%] translate-y-14 h-full bg-gray-100 -skew-y-6 origin-bottom-left"></div>
 
-                        <div class="w-1/2 h-full bg-gray-100 skew-y-6 origin-bottom-right"></div>
+                        <div class="w-[30%] h-full bg-gray-100 skew-y-6 origin-bottom-right"></div>
                     </div>
                     <input type="image" className="h-[30px]" src={rightBack} alt=""/>
                     <div id="grid" className="overflow-hidden p-5">

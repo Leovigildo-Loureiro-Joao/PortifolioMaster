@@ -30,7 +30,7 @@ export const QuemSouEu=()=>{
     ]
 
     return <>
-          <div id="quemSou" className="pr-20 py-20">
+          <div id="quemSou" className="pr-20 pb-20">
             <div id="block-left" className="flex flex-col items-end">
                 <img src={grupo} alt="" className="img-bloco w-20"/>
                 <div className="section-title flex flex-col">
