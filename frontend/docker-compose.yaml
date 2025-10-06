@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  frontend:
+    build: .
+    ports:
+      - "5173:80"
+    environment:
+      - VITE_API_URL=http://localhost:8080/api
+    volumes:
+      - ./src:/app/src
+      - ./package.json:/app/package.json
+    command: npm run dev
+    depends_on:
+      - backend
+
+  # Se quiser desenvolvimento com hot reload
+  frontend-dev:
+    image: node:18-alpine
+    working_dir: /app
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://backend:8080/api
+    volumes:
+      - .:/app
+    command: npm run dev
+    depends_on:
+      - backend
