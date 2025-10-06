@@ -30,7 +30,7 @@ public class ProjectService {
         return repository.findAll();
     }
 
-    public Optional<Project> getProjectById(UUID id) {
+    public Optional<Project> getProjectById(String id) {
         return repository.findById(id);
     }
 
@@ -56,7 +56,7 @@ public class ProjectService {
         return (String) uploadResult.get("secure_url");
     }
 
-    public void deleteProject(UUID id) {
+    public void deleteProject(String id) {
         repository.deleteById(id);
     }
 }
