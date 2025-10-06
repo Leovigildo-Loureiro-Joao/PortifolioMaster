@@ -12,71 +12,7 @@ import { useState } from "react"
 export const Projectos=()=>{
 
     const [projectos,setProjectos]= useState([
-        {
-            "img":projetImage,
-            "img2":projetImage2,
-            "nome":"TechClass",
-            "mini_desc":"Uma plataforma de cursos online.",
-            "desc":" Uma plataforma para cursos online, focada na experiência"
-                    +"do aluno e no acompanhamento de progresso."
-                    +"Focado no ensino de Angola, onde a ideia é levar o ensino a "
-                    +"cada canto de uma maneira simples, equilibrada e divertida "
-                    +"onde ate os alunos ou professores podem partilhar o que sabem"
-                    +"se tornando instrutores",
-            "obje": "Permitir um ensino adequado em Angola através de cursos online que a plataforma disponibilizara de forma paga ou gratuita",
-            "lance": "Indeterminado",
-            "abertura": "--/--/--",
-            "tecno":["react","spring","xd","code"]
-
-        }, {
-            "img":projetImage,
-            "img2":projetImage2,
-            "nome":"TechClass",
-            "mini_desc":"Uma plataforma de cursos online.",
-            "desc":" Uma plataforma para cursos online, focada na experiência"
-                    +"do aluno e no acompanhamento de progresso."
-                    +"Focado no ensino de Angola, onde a ideia é levar o ensino a "
-                    +"cada canto de uma maneira simples, equilibrada e divertida "
-                    +"onde ate os alunos ou professores podem partilhar o que sabem"
-                    +"se tornando instrutores",
-            "obje": "Permitir um ensino adequado em Angola através de cursos online que a plataforma disponibilizara de forma paga ou gratuita",
-            "lance": "Indeterminado",
-            "abertura": "--/--/--",
-            "tecno":["react","spring","xd","code"]
-
-        }, {
-            "img":projetImage,
-            "img2":projetImage2,
-            "nome":"TechClass",
-            "mini_desc":"Uma plataforma de cursos online.",
-            "desc":" Uma plataforma para cursos online, focada na experiência"
-                    +"do aluno e no acompanhamento de progresso."
-                    +"Focado no ensino de Angola, onde a ideia é levar o ensino a "
-                    +"cada canto de uma maneira simples, equilibrada e divertida "
-                    +"onde ate os alunos ou professores podem partilhar o que sabem"
-                    +"se tornando instrutores",
-            "obje": "Permitir um ensino adequado em Angola através de cursos online que a plataforma disponibilizara de forma paga ou gratuita",
-            "lance": "Indeterminado",
-            "abertura": "--/--/--",
-            "tecno":["react","spring","xd","code"]
-
-        }, {
-            "img":projetImage,
-            "img2":projetImage2,
-            "nome":"TechClass",
-            "mini_desc":"Uma plataforma de cursos online.",
-            "desc":" Uma plataforma para cursos online, focada na experiência"
-                    +"do aluno e no acompanhamento de progresso."
-                    +"Focado no ensino de Angola, onde a ideia é levar o ensino a "
-                    +"cada canto de uma maneira simples, equilibrada e divertida "
-                    +"onde ate os alunos ou professores podem partilhar o que sabem"
-                    +"se tornando instrutores",
-            "obje": "Permitir um ensino adequado em Angola através de cursos online que a plataforma disponibilizara de forma paga ou gratuita",
-            "lance": "Indeterminado",
-            "abertura": "--/--/--",
-            "tecno":["react","spring","xd","code"]
-
-        }
+        
     ])
 
     function TecnoFerra(icone) {
