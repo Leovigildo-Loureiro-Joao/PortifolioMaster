@@ -1,36 +1,53 @@
 package com.example.api.models;
-import java.util.List;
+
+import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.annotations.Type;
+import org.hibernate.type.SqlTypes;
+
+import com.example.api.utils.StringListConverter;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import java.util.List;
+import java.util.UUID;
 
 @Data
+@Entity
+@Table(name = "projects")
 public class Project {
-   
+
+    @Id
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
+
     private String img;
     private String img2;
     private String nome;
+    private String link;
+
+    @Column(length = 255, name = "mini_desc")
     private String miniDesc;
+
+    @Column(columnDefinition = "TEXT", name = "descricao")
     private String desc;
+
+    @Column(columnDefinition = "TEXT")
     private String obje;
+
+    @Column(columnDefinition = "TEXT")
     private String lance;
+
     private String abertura;
-    private List<String> tecno; // lista de tecnologias
 
-    public Project() {}
+    /**
+     * Lista de tecnologias — armazenada como JSON no PostgreSQL.
+     */
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(columnDefinition = "jsonb")
+    private List<String> tecno;
 
-    public Project(String id, String img, String img2, String nome, String miniDesc,
-                   String desc, String obje, String lance, String abertura, List<String> tecno) {
-        this.id = id;
-        this.img = img;
-        this.img2 = img2;
-        this.nome = nome;
-        this.miniDesc = miniDesc;
-        this.desc = desc;
-        this.obje = obje;
-        this.lance = lance;
-        this.abertura = abertura;
-        this.tecno = tecno;
-    }
-
-    
+  
 }
