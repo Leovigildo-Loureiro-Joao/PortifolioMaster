@@ -1,34 +1,42 @@
 
-import grupo from "../assets/Grupo 3.jpg"
-import { SiLinkedin, SiGithub } from "react-icons/si";
+import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+
 
 export const Footer =()=>{
-    return    <footer className="mx-20 py-10">
-        <img src={grupo} alt="" className="img-bloco w-20"/>
-        <div id="text-foot" className=" flex flex-col gap-10">
-           
-           <div>
-                <div id="links" className="float-right flex gap-3 flex-col">
-                    <h2 className="text-secondry">Links uteis</h2>
-                    <nav >
-                        <ul className="flex gap-5 font-bold text-blue-950 text-sm">
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#projecto">Projectos</a></li>
-                            <li><a href="#quemSou">Quem sou</a></li>
-                            <li><a href="#habilidade">Habildades</a></li>
-                        </ul>
-                    </nav>
-                    <p className="tracking-wider">Obrigado pela visita! Vamos trabalhar juntos em algo incrível?</p>
-                </div>
-           </div>
-            <div id="foot" className="gap-5 flex flex-col items-center tracking-wider font-thin">
-                <p>leovigildojoao902@gmail.com © 2024 Leovigildo Loureiro João. Todos os direitos reservados.</p>
-                <div className=" flex flex-row gap-5">
-                    <SiGithub className="w-7 h-7"/>
-                    <SiLinkedin className="w-7 h-7"/>
-                </div>
-            </div>
+    return    <footer class="bg-gray-900 text-gray-300 py-10 px-6 border-t-2 border-gradient-to-r from-teal-400 to-pink-500">
+    <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-start gap-8">
+
+     
+      <div>
+        <h3 class="text-xl font-semibold mb-2 text-white">Leovigildo Loureiro João</h3>
+        <p class="text-sm italic">"Transformando ideias em soluções digitais."</p>
+      </div>
+
+      
+      <div>
+        <h4 class="text-white font-semibold mb-3 tracking-widest">Links úteis</h4>
+        <ul class="space-y-1 text-sm ">
+          <li><a href="#home" class="hover:text-teal-400 tracking-widest">Home</a></li>
+          <li><a href="#projecto" class="hover:text-teal-400 tracking-widest">Projetos</a></li>
+          <li><a href="#habilidades" class="hover:text-teal-400 tracking-widest">Habilidades</a></li>
+          <li><a href="#contato" class="hover:text-teal-400 tracking-widest">Contato</a></li>
+        </ul>
+      </div>
+
+     
+      <div>
+        <h4 class="text-white font-semibold mb-3">Conecte-se</h4>
+        <div class="flex space-x-4 text-xl ">
+          <a href="https://github.com/leovigildo" class="hover:text-white transition-all"><FaGithub/></a>
+          <a href="https://linkedin.com/in/leovigildo" class="hover:text-blue-500 transition-all"><FaLinkedin/></a>
+          <a href="mailto:leovigildojao902@gmail.com" class="hover:text-pink-500 transition-all"><FaEnvelope/></a>
         </div>
-       
-    </footer>
+      </div>
+    </div>
+
+    <div class="text-center mt-10 text-sm text-gray-500">
+      © 2024 Leovigildo Loureiro João — Todos os direitos reservados.
+    </div>
+  </footer>
+
 }
