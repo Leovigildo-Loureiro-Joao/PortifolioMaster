@@ -46,7 +46,7 @@ Mais do que um simples portfólio, ele é um **experimento de interação** — 
 ├── 📜 package.json
 ├── 📜 vite.config.js
 └── README.md
-
+```
 
 
 ---
