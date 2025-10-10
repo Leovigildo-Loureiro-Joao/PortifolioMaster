@@ -24,7 +24,7 @@ public class Project {
     private String id;
 
     private String img;
-    private String img2;
+    private String url;
     private String nome;
     private String link;
 

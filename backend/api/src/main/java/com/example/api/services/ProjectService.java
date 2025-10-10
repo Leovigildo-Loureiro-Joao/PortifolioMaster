@@ -44,7 +44,7 @@ public class ProjectService {
         project.setAbertura(request.abertura());
         project.setTecno(request.tecno());
         project.setImg(uploadImage(request.img()));
-        project.setImg2(uploadImage(request.img2()));
+        project.setUrl(uploadImage(request.img2()));
         project.setLink(request.link()); // novo campo
 
         return repository.save(project);
