@@ -1,7 +1,7 @@
 package com.example.api.services;
 
 import com.cloudinary.Cloudinary;
-import com.cloudinary.utils.ObjectUtils;
+
 import com.example.api.dto.ProjectRequest;
 import com.example.api.models.Project;
 import com.example.api.repositories.ProjectRepository;
@@ -37,7 +37,7 @@ public class ProjectService {
 public Project createProject(ProjectRequest request) throws IOException {
     Project project = new Project();
     project.setNome(request.nome());
-    project.setMiniDesc(request.miniDesc());
+    project.setMiniDesc(request.mini_desc());
     project.setDesc(request.desc());
     project.setObje(request.obje());
     project.setLance(request.lance());
@@ -46,6 +46,7 @@ public Project createProject(ProjectRequest request) throws IOException {
     project.setImg(uploadImage(request.img())); // Imagem
     project.setUrl(uploadVideo(request.url())); // Vídeo - MÉTODO DIFERENTE!
     project.setLink(request.link());
+    project.setType(request.type());
 
     return repository.save(project);
 }

@@ -7,6 +7,7 @@ import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.annotations.Type;
 import org.hibernate.type.SqlTypes;
 
+import com.example.api.enums.ProjectType;
 import com.example.api.utils.StringListConverter;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -41,6 +42,9 @@ public class Project {
     private String lance;
 
     private String abertura;
+
+    @Enumerated(EnumType.STRING)
+    private ProjectType type;
 
     /**
      * Lista de tecnologias — armazenada como JSON no PostgreSQL.
