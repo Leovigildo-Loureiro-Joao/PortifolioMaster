@@ -34,27 +34,38 @@ public class ProjectService {
         return repository.findById(id);
     }
 
-   public Project createProject(ProjectRequest request) throws IOException {
-        Project project = new Project();
-        project.setNome(request.nome());
-        project.setMiniDesc(request.miniDesc());
-        project.setDesc(request.desc());
-        project.setObje(request.obje());
-        project.setLance(request.lance());
-        project.setAbertura(request.abertura());
-        project.setTecno(request.tecno());
-        project.setImg(uploadImage(request.img()));
-        project.setUrl(uploadImage(request.img2()));
-        project.setLink(request.link()); // novo campo
+public Project createProject(ProjectRequest request) throws IOException {
+    Project project = new Project();
+    project.setNome(request.nome());
+    project.setMiniDesc(request.miniDesc());
+    project.setDesc(request.desc());
+    project.setObje(request.obje());
+    project.setLance(request.lance());
+    project.setAbertura(request.abertura());
+    project.setTecno(request.tecno());
+    project.setImg(uploadImage(request.img())); // Imagem
+    project.setUrl(uploadVideo(request.url())); // Vídeo - MÉTODO DIFERENTE!
+    project.setLink(request.link());
 
-        return repository.save(project);
-    }
+    return repository.save(project);
+}
 
-    private String uploadImage(MultipartFile file) throws IOException {
-        if (file == null || file.isEmpty()) return null;
-        Map uploadResult = cloudinary.uploader().upload(file.getBytes(), ObjectUtils.emptyMap());
-        return (String) uploadResult.get("secure_url");
-    }
+private String uploadImage(MultipartFile file) throws IOException {
+    if (file == null || file.isEmpty()) return null;
+    Map uploadResult = cloudinary.uploader().upload(file.getBytes(), 
+        Map.of("resource_type", "image")); // ✅ Especifica que é imagem
+    return (String) uploadResult.get("secure_url");
+}
+
+private String uploadVideo(MultipartFile file) throws IOException {
+    if (file == null || file.isEmpty()) return null;
+    
+    // ✅ Upload como VÍDEO no Cloudinary
+    Map uploadResult = cloudinary.uploader().upload(file.getBytes(), 
+        Map.of("resource_type", "video")); // CRÍTICO: resource_type = video
+    
+    return (String) uploadResult.get("secure_url");
+}
 
     public void deleteProject(String id) {
         repository.deleteById(id);

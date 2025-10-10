@@ -15,6 +15,6 @@ public record ProjectRequest(
         String abertura,
         List<String> tecno,
         MultipartFile img,
-        MultipartFile img2,
+        MultipartFile url,
         String link // novo atributo adicionado conforme pedido
 ) {}
