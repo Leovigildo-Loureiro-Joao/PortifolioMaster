@@ -8,7 +8,7 @@ import springIcone from "../assets/icons8_spring_logo.png";
 import reactIcone from "../assets/icons8_react_native_2.png";
 import gitSvg from "../assets/github.svg";
 import projetImage from "../assets/Imagem 1.png";
-import projetImage2 from "../assets/Web 1920 – 10.png";
+import projetImage2 from "../assets/video.webm";
 
 export const Projectos = () => {
   const search = ["All", "Mobile", "Web", "Desktop"];
@@ -18,7 +18,7 @@ export const Projectos = () => {
   const [projectos] = useState([
     {
       img: projetImage,
-      img2: projetImage2,
+      video: projetImage2,
       type: "Desktop",
       nome: "TechClass",
       mini_desc: "Uma plataforma de cursos online.",
@@ -32,6 +32,7 @@ export const Projectos = () => {
     },
     {
       img: projetImage,
+      video: projetImage2,
       type: "Mobile",
       nome: "StudyApp",
       mini_desc: "Aplicativo móvel para estudos.",
@@ -44,6 +45,7 @@ export const Projectos = () => {
     },
     {
       img: projetImage,
+      video: projetImage2,
       type: "Web",
       nome: "CodeShare",
       mini_desc: "Rede social para programadores.",
