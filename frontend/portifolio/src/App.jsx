@@ -1,11 +1,10 @@
 
-import { Footer } from './components/footer'
-import { Header } from './components/header'
-import { Home } from './components/home'
-import { Projectos } from './components/projectos'
-import { QuemSouEu } from './components/quemSouEu'
-import { Skills } from './components/skills'
-import fundo from "./assets/fundo.jpg"
+import { Footer } from './pages/footer'
+import { Header } from './pages/header'
+import { Home } from './pages/home'
+import { Projectos } from './pages/projectos'
+import { QuemSouEu } from './pages/quemSouEu'
+import { Skills } from './pages/skills'
 
 function App() {
   

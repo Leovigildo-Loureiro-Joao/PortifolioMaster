@@ -25,7 +25,7 @@ export default {
         // => @media (max-width: 1024px) { ... }
       },
       backgroundImage:{
-        "sombra":"url('/assets/Grupo12.png')"
+        "sombra":"url('/assets/images/Grupo12.png')"
       },
       borderRadius:{
         boder_radius_big:"100%",
