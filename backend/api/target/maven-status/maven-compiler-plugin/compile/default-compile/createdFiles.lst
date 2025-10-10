@@ -1,5 +1,0 @@
-com/example/api/config/FirebaseConfig.class
-com/example/api/repositories/ProjectRepository.class
-com/example/api/controllers/ProjectController.class
-com/example/api/models/Project.class
-com/example/api/services/ProjectService.class
