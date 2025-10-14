@@ -10,7 +10,6 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:3.1.0:exec</goal>
             </goals>
             <properties>
-                <exec.vmArgs>-DGOOGLE_APPLICATION_CREDENTIALS=/home/leovigildo/Documentos/Portifolio/backend/api/src/main/resources/portifoliomaster-firebase-adminsdk-fbsvc-41f860d53a.json</exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.appArgs></exec.appArgs>
                 <exec.mainClass>com.example.api.ApiApplication</exec.mainClass>
@@ -27,7 +26,6 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:3.1.0:exec</goal>
             </goals>
             <properties>
-                <exec.vmArgs>-DGOOGLE_APPLICATION_CREDENTIALS=/home/leovigildo/Documentos/Portifolio/backend/api/src/main/resources/portifoliomaster-firebase-adminsdk-fbsvc-41f860d53a.json -agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.appArgs></exec.appArgs>
                 <exec.mainClass>com.example.api.ApiApplication</exec.mainClass>
@@ -45,7 +43,6 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:3.1.0:exec</goal>
             </goals>
             <properties>
-                <exec.vmArgs>-DGOOGLE_APPLICATION_CREDENTIALS=/home/leovigildo/Documentos/Portifolio/backend/api/src/main/resources/portifoliomaster-firebase-adminsdk-fbsvc-41f860d53a.json</exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.mainClass>com.example.api.ApiApplication</exec.mainClass>
                 <exec.executable>java</exec.executable>

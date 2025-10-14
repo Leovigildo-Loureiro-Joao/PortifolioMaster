@@ -6,8 +6,8 @@ services:
     container_name: portfolio-db
     environment:
       POSTGRES_DB: portfolio
-      POSTGRES_USER: dev
-      POSTGRES_PASSWORD: Lp11Baluarte
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
     ports:
       - "5432:5432"
     volumes:
