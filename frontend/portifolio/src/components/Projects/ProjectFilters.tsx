@@ -9,7 +9,7 @@ const FILTERS = ["All", "Mobile", "Web", "Desktop"];
 
 export const ProjectFilters = ({ filter, setFilter }: ProjectFiltersProps) => {
   return (
-    <div className="m-10 flex justify-center items-center gap-10">
+    <div className="m-10 flex justify-center items-center lg:gap-10 md:gap-5 flex-wrap">
       {FILTERS.map((value) => (
         <button
           key={value}

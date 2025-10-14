@@ -1,10 +1,12 @@
 
-import { Footer } from './pages/footer'
-import { Header } from './pages/header'
-import { Home } from './pages/home'
-import { Projectos } from './pages/projectos'
-import { QuemSouEu } from './pages/quemSouEu'
-import { Skills } from './pages/skills'
+import { MySelf } from './components/MySelf'
+import { Projects } from './components/Projects'
+import { Skills } from './components/Skills'
+
+import { Footer } from './components/UI/footer'
+import { Header } from './components/UI/Header'
+import { Home } from './components/UI/home'
+
 
 function App() {
   
@@ -13,8 +15,8 @@ function App() {
     <>
      <Header/>
      <Home/>
-     <Projectos/>
-     <QuemSouEu/>
+     <Projects/>
+     <MySelf/>
      
          
         <Skills/>

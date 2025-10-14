@@ -1,26 +1,11 @@
-import { motion } from "framer-motion";
-import forma from "../assets/images/Caminho6.png";
-import gif from "../assets/images/f1d6a204-0a35-4b48-a849-8421515cda54.gif";
+import { motion, Variant, Variants } from "framer-motion";
+import forma from "../../assets/images/Caminho6.png";
+import gif from "../../assets/images/f1d6a204-0a35-4b48-a849-8421515cda54.gif";
+import { mySelf } from "../../data/mySelf";
 
 
-export const QuemSouEu = () => {
-  const info = [
-    {
-      title: "Alcance Global",
-      info:
-        "Meu objetivo é conectar pessoas através da tecnologia, criando interfaces intuitivas e soluções que possam ser usadas globalmente, adaptadas a diferentes contextos e necessidades.",
-    },
-    {
-      title: "Paixão pelo Conhecimento",
-      info:
-        "Tenho sede de aprendizado constante e adoro desafios que me permitem crescer. Seja explorando novas tecnologias ou desenvolvendo habilidades em design, estou sempre buscando expandir meu conhecimento.",
-    },
-    {
-      title: "Criatividade e Autonomia",
-      info:
-        "Gosto de unir criatividade e lógica para dar vida a projetos únicos. Com uma mente aberta e autônoma, busco sempre inovar e encontrar soluções eficientes para cada desafio.",
-    },
-  ];
+export const MySelf = () => {
+  
 
   const container = {
     hidden: { opacity: 0 },
@@ -33,7 +18,7 @@ export const QuemSouEu = () => {
     },
   };
 
-  const item = {
+  const item:Variants = {
     hidden: { opacity: 0, x: 60 },
     show: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } },
   };
@@ -63,7 +48,7 @@ export const QuemSouEu = () => {
           whileInView="show"
           viewport={{ once: true }}
         >
-          {info.map((block, i) => (
+          {mySelf.map((block, i) => (
             <motion.div
               key={i}
               variants={item}

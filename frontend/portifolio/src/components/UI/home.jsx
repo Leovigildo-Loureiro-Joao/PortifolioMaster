@@ -1,10 +1,10 @@
 import { Typewriter } from "react-simple-typewriter"
-import inovation from "../assets/images/Innovation.gif"
+import inovation from "../../assets/images/Innovation.gif"
 
 export const Home = () => {
     return (
         <div id="home" className="flex p-20 pb-0 mt-20 justify-between items-start">
-            <div id="welcome" className="w-[45%] text-text_color leading-7 flex flex-col gap-5">
+            <div id="welcome" className="lg:w-full md:w-[45%] text-text_color leading-7 flex flex-col gap-5">
                 <div id="titulo">
                     <h1 className="text-3xl pb-2">
                         <span className="text-primary">Bem-vindo</span> ao meu portfólio
@@ -49,7 +49,7 @@ export const Home = () => {
                 </div>
             </div>
 
-            <figure className="w-[40%] -translate-y-[15%] animate-fadeIn">
+            <figure className="lg:hidden md:block w-[40%] -translate-y-[15%] animate-fadeIn">
                 <img src={inovation} alt="Inovação" />
             </figure>
         </div>

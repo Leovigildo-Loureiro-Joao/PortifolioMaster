@@ -12,7 +12,7 @@ export const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
     <motion.div
       whileHover={{ scale: 1.03 }}
       transition={{ type: "spring", stiffness: 200 }}
-      className="card-project bg-white min-w-[310px] w-[310px] shadow-lg rounded-xl overflow-hidden"
+      className="card-project bg-white min-w-[200px] max-w-[310px] w-full shadow-lg rounded-xl overflow-hidden"
     >
       <figure className="overflow-hidden">
         <img
@@ -23,7 +23,7 @@ export const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
       </figure>
       <div className="p-5 text-center">
         <h2 className="font-bold text-primary">{project.nome}</h2>
-        <p className="text-sm text-gray-600 mt-2">{project.mini_desc}</p>
+        <p className="text-sm text-gray-600 mt-2">{project.miniDesc}</p>
       </div>
       <div className="w-full flex text-sm">
         <button
@@ -35,10 +35,12 @@ export const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
         <input
           type="image"
           src={gitSvg}
+          onClick={() => window.open(project.link, "_blank")}
           className="w-full h-9 flex items-center justify-center hover:bg-slate-100 transition-all rounded-ee-md border-primary border"
           alt="GitHub"
         />
       </div>
     </motion.div>
   );
-};
+}
+

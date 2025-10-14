@@ -25,27 +25,6 @@ html {
   animation: fadeIn 1.5s ease-in-out forwards;
 }
 
-@layer components{
-
-
-  @keyframes girar {
-    from{
-        transform: rotate(0deg);
-        color:#a04e65
-    }
-    to{
-        transform: rotate(360deg);
-    }
-  }
-
-  @keyframes girarP {
-    from{
-        transform: rotate(360deg);
-    }
-    to{
-        transform: rotate(0deg);
-    }
-  }
 
   @keyframes pulse-slow {
   0%, 100% {
@@ -60,6 +39,42 @@ html {
 
 
 
-
+/* Animação personalizada para o menu */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
+.menu-mobile {
+  animation: slideDown 0.3s ease-out;
+}
+
+/* Melhorar acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  .menu-mobile {
+    animation: none;
+  }
+}
+
+
+
+@media (max-width:800px){
+  .lg\:grid-cols-3.grid-card{
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+@media (max-width:550px){
+  .lg\:grid-cols-3.grid-card{
+     grid: none;
+     align-items: center;
+     justify-content: center;
+  }
+}

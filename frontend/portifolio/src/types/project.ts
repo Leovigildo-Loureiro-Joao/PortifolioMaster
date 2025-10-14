@@ -1,7 +1,7 @@
 export interface Project {
   id: number;
   nome: string;
-  mini_desc: string;
+  miniDesc: string;
   descricao: string;
   obje: string;
   lance: string;
@@ -15,7 +15,7 @@ export interface Project {
 
 export interface ProjectRequest {
   nome: string;
-  mini_desc: string;
+  miniDesc: string;
   descricao: string;
   obje: string;
   lance: string;
