@@ -1,0 +1,9 @@
+/home/leovigildo/Documentos/Portifolio/backend/api/src/main/java/com/example/api/ApiApplication.java
+/home/leovigildo/Documentos/Portifolio/backend/api/src/main/java/com/example/api/config/CloudinaryConfig.java
+/home/leovigildo/Documentos/Portifolio/backend/api/src/main/java/com/example/api/config/WebConfig.java
+/home/leovigildo/Documentos/Portifolio/backend/api/src/main/java/com/example/api/controllers/ProjectController.java
+/home/leovigildo/Documentos/Portifolio/backend/api/src/main/java/com/example/api/dto/ProjectRequest.java
+/home/leovigildo/Documentos/Portifolio/backend/api/src/main/java/com/example/api/models/Project.java
+/home/leovigildo/Documentos/Portifolio/backend/api/src/main/java/com/example/api/repositories/ProjectRepository.java
+/home/leovigildo/Documentos/Portifolio/backend/api/src/main/java/com/example/api/services/ProjectService.java
+/home/leovigildo/Documentos/Portifolio/backend/api/src/main/java/com/example/api/utils/StringListConverter.java
