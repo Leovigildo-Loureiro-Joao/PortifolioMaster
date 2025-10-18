@@ -2,27 +2,32 @@ name: Generate Snake Game
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 12 * * *"
   workflow_dispatch:
   push:
-    branches: [ main, frontend,backend ]  # Adicione frontend aqui
+    branches:
+      - main
 
 jobs:
-  build:
+  generate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-        
-      - name: Generate snake animation
-        uses: Platane/snk@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
-          github_user_name: Leovigildo-Loureiro-Joao
-          outputs: dist/github-contribution-grid-snake.svg
+          python-version: '3.10'
           
-      - name: Deploy to output branch
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.PAT_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: output
+      - name: Generate snake.svg
+        run: |
+          pip install pygithub
+          python .github/scripts/generate_snake.py
+          
+      - name: Push snake.svg to output branch
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan output || git checkout output
+          git reset --hard
+          git add snake.svg
+          git commit -m "Update snake animation"
+          git push origin output --force
