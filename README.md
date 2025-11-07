@@ -81,19 +81,6 @@ As IAs não substituem o programador — **elas ampliam sua visão**, aceleram i
 
 ---
 
-## 🐍 Snake Game Contribution Graph
-
-![Snake animation](https://github.com/Leovigildo-Loureiro-Joao/Leovigildo-Loureiro-Joao/blob/output/github-contribution-grid-snake.svg)
-
----
-
-## 📷 Prévia do Projeto
-
-*(Aqui poderás inserir o GIF ou vídeo demonstrativo quando disponível)*  
-> Sugestão: usar o **GIPHY** ou o **ScreentoGIF** (Windows) / **Peek** (Linux) para gravar a animação do site.
-
----
-
 ## 📬 Contato
 
 📧 **Email:** leovigildojoao902@gmail.com  
