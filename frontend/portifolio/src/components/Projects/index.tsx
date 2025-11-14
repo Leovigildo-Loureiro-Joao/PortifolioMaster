@@ -20,7 +20,7 @@ export const Projects = () => {
   }
 
   if (error) {
-    return <ErrorMessage message={error} />;
+    return <ErrorMessage message={error}/>;
   }
 
 const filteredProjects = filter === "All" 
