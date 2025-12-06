@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getProjectsCache, projectService } from '../services/projectService';
 import { Project } from '../types/project';
 
@@ -11,7 +11,7 @@ export function useProjects() {
     const loadProjects = async () => {
       try {
         setLoading(true);
-        const projectsData = await getProjectsCache();
+        const projectsData = await (projectService.getProjects());
         setProjects(projectsData);
       } catch (err) {
         setError('Erro ao carregar projetos');
