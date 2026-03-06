@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getProjectsCache, projectService } from '../services/projectService';
+import { projectService } from '../services/projectService';
 import { Project } from '../types/project';
 
 export function useProjects() {
@@ -13,8 +13,14 @@ export function useProjects() {
         setLoading(true);
         const projectsData = await (projectService.getProjects());
         setProjects(projectsData);
+        setError(null);
       } catch (err) {
-        setError('Erro ao carregar projetos');
+        const errorMessage =
+          err instanceof Error &&
+          (err.name === 'AbortError' || err.message.toLowerCase().includes('timeout'))
+            ? 'Erro ao carregar projetos devido ao timeout. Tente novamente.'
+            : 'Erro ao carregar projetos';
+        setError(errorMessage);
         console.error('Erro:', err);
       } finally {
         setLoading(false);
