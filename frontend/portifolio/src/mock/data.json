@@ -13,5 +13,35 @@
     "type": "WEB",
     "tecno": "[[\"Spring\", \"React\", \"TypeScript\", \"PostgreSQL\", \"Docker\", \"postman\"]]",
     "create_at": "2025-12-06 16:58:58.470297+00"
+  },
+  {
+    "id": "edugestor-001",
+    "img": "https://res.cloudinary.com/dh6xfyjxu/image/upload/v1760067398/edugestor-preview.png",
+    "url": "https://res.cloudinary.com/dh6xfyjxu/video/upload/v1760067434/edugestor-demo.webm",
+    "nome": "EduGestor",
+    "link": "https://github.com/Leovigildo-Loureiro-Joao/EduGestor",
+    "mini_desc": "Sistema de gestão escolar completo com operação offline-first.",
+    "descricao": "Sistema de gestão escolar com foco em: gestão académica (alunos, turmas, aulas, frequência, avaliações); gestão financeira (transações, propinas, alocações); planeamento estratégico (metas, tarefas, rotinas, eventos); operação offline-first com sincronização. Desenvolvido com React 19, Vite 7, Supabase e Dexie para IndexedDB. UI com Tailwind CSS e MUI. Arquitetura offline-first onde o CRUD é local primeiro com enfileiramento em syncQueue e sincronização com Supabase quando online.",
+    "obje": "Criar uma plataforma escolar resiliente que funcione mesmo sem internet, com sincronização automática e gestão unificada de académico, financeiro e estratégico.",
+    "lance": "Offline-first com sincronização inteligente e dashboards estratégicos em tempo real.",
+    "abertura": "2026-02-21",
+    "type": "WEB",
+    "tecno": "[[\"React\", \"TypeScript\", \"Vite\", \"Supabase\", \"Dexie\", \"Tailwind\", \"MUI\", \"Zustand\", \"Recharts\"]]",
+    "create_at": "2026-03-07 12:00:00.000000+00"
+  },
+  {
+    "id": "securevault-001",
+    "img": "https://res.cloudinary.com/dh6xfyjxu/image/upload/v1772858316/Captura_de_ecr%C3%A3_de_2026-03-07_05-37-15_ybukga.png",
+    "url": "https://res.cloudinary.com/dh6xfyjxu/video/upload/v1772857905/Grava%C3%A7%C3%A3o_de_ecr%C3%A3_a_partir_de_2025-12-16_16-18-49_l2lnj4.webm",
+    "nome": "SecureVault",
+    "link": "https://github.com/Leovigildo-Loureiro-Joao/securevault",
+    "mini_desc": "Gestor de senhas seguro com encriptação local e autenticação biométrica.",
+    "descricao": "O SecureVault é uma aplicação completa de gestão de senhas desenvolvida em Flutter que demonstra práticas avançadas de segurança de dados e UX moderna. Oferece senha mestra com autenticação biométrica (Face ID/Fingerprint), armazenamento seguro com Hive + Secure Storage, encriptação AES-256 para todas as senhas, dashboard inteligente com estatísticas em tempo real, organização por categorias com ícones personalizados, cálculo automático de força de senha, busca em tempo real e sistema de recuperação por pergunta de segurança sem necessidade de email. UI moderna com tema claro/escuro persistente, bottom navigation e gestos intuitivos.",
+    "obje": "Criar um gestor de senhas seguro, elegante e 100% local que prioriza a privacidade do usuário com encriptação avançada e autenticação biométrica.",
+    "lance": "Segurança enterprise com UX fluida - encriptação AES-256, biometria e dados 100% locais.",
+    "abertura": "2024-03-19",
+    "type": "MOBILE",
+    "tecno": "[[\"Flutter\", \"Dart\", \"Hive\", \"AES-256\", \"Biometria\", \"Local Auth\", \"Secure Storage\"]]",
+    "create_at": "2026-03-07 12:30:00.000000+00"
   }
 ]
