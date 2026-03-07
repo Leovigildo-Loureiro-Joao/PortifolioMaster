@@ -16,7 +16,7 @@
   },
   {
     "id": "edugestor-001",
-    "img": "https://res.cloudinary.com/dh6xfyjxu/image/upload/v1760067398/edugestor-preview.png",
+    "img": "https://res.cloudinary.com/dh6xfyjxu/image/upload/v1772857465/Captura_de_ecr%C3%A3_de_2026-03-07_05-19-11_kx6bnh.png",
     "url": "https://res.cloudinary.com/dh6xfyjxu/video/upload/v1760067434/edugestor-demo.webm",
     "nome": "EduGestor",
     "link": "https://github.com/Leovigildo-Loureiro-Joao/EduGestor",
@@ -43,5 +43,21 @@
     "type": "MOBILE",
     "tecno": "[[\"Flutter\", \"Dart\", \"Hive\", \"AES-256\", \"Biometria\", \"Local Auth\", \"Secure Storage\"]]",
     "create_at": "2026-03-07 12:30:00.000000+00"
+  },
+  
+  {
+    "id": "audiolearn-001",
+    "img": "https://res.cloudinary.com/dh6xfyjxu/image/upload/v1772860549/Captura_de_ecr%C3%A3_de_2026-03-07_06-14-13_xiekrc.png",
+    "url": "https://res.cloudinary.com/dh6xfyjxu/video/upload/v1760067434/audiolearn-demo.webm",
+    "nome": "AudioLearn",
+    "link": "https://github.com/Leovigildo-Loureiro-Joao/audiolearn",
+    "mini_desc": "Plataforma de aprendizagem de idiomas com tecnologia Text-to-Speech.",
+    "descricao": "O AudioLearn é uma plataforma inovadora que combina tecnologia Text-to-Speech (TTS) com métodos comprovados de aprendizagem de idiomas. Permite criar, gerenciar e ouvir diálogos, vocabulários e conteúdos educacionais em múltiplos idiomas com áudio de alta qualidade via ElevenLabs API. Oferece geração de áudio com vozes naturais, preview em tempo real, suporte para Inglês, Português, Espanhol e mais, controle de velocidade, tom e tipo de voz. Inclui categorização de conteúdo (Diálogos, Podcasts, Vocabulários, Debates), sistema de filtros, carrossel interativo e modal de detalhes com texto e tradução. Desenvolvido com React 18 + TypeScript no frontend e Spring Boot 3 no backend, com design responsivo, animações fluidas com Framer Motion e dark mode ready.",
+    "obje": "Democratizar o acesso a materiais de áudio educacionais de qualidade para estudantes de idiomas, professores e entusiastas através de tecnologia TTS avançada.",
+    "lance": "Transforme textos em experiências de áudio imersivas com vozes naturais em múltiplos idiomas.",
+    "abertura": "2024-03-19",
+    "type": "WEB",
+    "tecno": "[[\"React\", \"TypeScript\", \"Spring Boot\", \"Tailwind\", \"Framer Motion\", \"ElevenLabs\", \"Docker\", \"MySQL\"]]",
+    "create_at": "2026-03-07 13:00:00.000000+00"
   }
 ]

@@ -65,16 +65,14 @@ html {
 
 
 @media (max-width:800px){
-  .lg\:grid-cols-3.grid-card{
+  .md\:grid-cols-3.grid-card{
       grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 
 @media (max-width:550px){
-  .lg\:grid-cols-3.grid-card{
-     grid: none;
-     align-items: center;
-     justify-content: center;
+  .md\:grid-cols-3.grid-card{
+     grid-template-columns: minmax(0, 1fr);
   }
 }

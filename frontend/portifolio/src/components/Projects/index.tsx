@@ -30,58 +30,44 @@ const filteredProjects = filter === "All"
         : []);
 
   return (
-    <div id="projecto" className="py-20 px-12 relative">
+    <section id="projecto" className="relative px-4 py-20 sm:px-6 md:px-10 lg:px-12">
       {/* 🔹 Título */}
-      <div className="section-title px-20 flex flex-col w-52">
-        <h1 className="text-xl font-bold text-primary">Projectos</h1>
+      <div className="section-title flex w-full max-w-xs flex-col sm:px-4 md:px-10 lg:px-20">
+        <h1 className="text-lg font-bold text-primary sm:text-xl">Projectos</h1>
         <span className="h-[5px] w-full rounded-boder_radius bg-gradient-to-r from-primary to-secondry"></span>
       </div>
 
       {/* 🔹 Filtros */}
       <ProjectFilters filter={filter} setFilter={setFilter} />
 
-      <div className="relative w-full px-4 py-10">
-  <div className="w-full max-w-7xl mx-auto">
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={filter}
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 1.05 }}
-        transition={{ duration: 0.3 }}
-        className="
-          grid-card
-          grid gap-4 w-full
-          grid-cols-1                    /* 📱 Mobile: 1 coluna */
-          sm:grid-cols-2                 /* 📟 Tablet pequeno: 2 colunas */
-          md:grid-cols-2
-          
-          lg:grid-cols-3  /* 📟 Tablet: 2 → 💻 Desktop: 3 */
-          xl:grid-cols-4                 /* 🖥️ Desktop grande: 4 colunas */
-          2xl:grid-cols-5                /* 🖥️💎 Tela enorme: 5 colunas */
-        "
-      >
-        {
-       
-          filteredProjects.map((project) => (
-          <ProjectCard
-            key={project.id}
-            project={project}
-            onSelect={setSelectedProject}
-          />
-        ))
-        
-        }
-      </motion.div>
-    </AnimatePresence>
-  </div>
-</div>
+      <div className="relative w-full px-0 py-10 sm:px-2">
+        <div className="mx-auto w-full max-w-7xl">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={filter}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+              className="grid-card grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3"
+            >
+              {filteredProjects.map((project) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  onSelect={setSelectedProject}
+                />
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
 
       {/* 🔹 Modal */}
       <ProjectModal
         selected={selectedProject}
         onClose={() => setSelectedProject(null)}
       />
-    </div>
+    </section>
   );
 };
