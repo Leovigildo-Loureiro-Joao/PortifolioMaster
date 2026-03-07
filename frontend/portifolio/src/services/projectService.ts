@@ -1,32 +1,25 @@
-import { supabase } from '../supabase/config'
+import rawProjects from '../mock/data.json'
 import { Project } from '../types/project'
 
 const PROJECTS_CACHE_KEY = 'portfolio_projects_cache_v1'
 const FEATURED_CACHE_KEY = 'portfolio_featured_projects_cache_v1'
 const RECENT_CACHE_KEY = 'portfolio_recent_projects_cache_v1'
-const REQUEST_TIMEOUT_MS = 15000
-const MAX_RETRIES = 2
-const RETRY_BASE_DELAY_MS = 800
 
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
-
-const isRetryableError = (error: unknown): boolean => {
-  if (!error || typeof error !== 'object') return false
-  const err = error as { name?: string; message?: string; code?: string }
-  const message = (err.message || '').toLowerCase()
-
-  return (
-    err.name === 'AbortError' ||
-    err.code === 'ETIMEDOUT' ||
-    message.includes('timeout') ||
-    message.includes('timed out') ||
-    message.includes('failed to fetch') ||
-    message.includes('network')
-  )
-}
-
-const getProjectsCache = (): Project[] => {
-  return getArrayCache(PROJECTS_CACHE_KEY)
+type RawProject = {
+  id?: string | number
+  nome?: string
+  mini_desc?: string
+  miniDesc?: string
+  descricao?: string
+  obje?: string
+  lance?: string
+  abertura?: string
+  create_at?: string
+  tecno?: unknown
+  img?: string
+  url?: string
+  type?: string
+  link?: string
 }
 
 const getArrayCache = (cacheKey: string): Project[] => {
@@ -65,194 +58,120 @@ const setProjectCache = (cacheKey: string, project: Project) => {
   }
 }
 
-const runWithRetry = async <T>(
-  operation: (signal: AbortSignal) => Promise<T>,
-): Promise<T> => {
-  let lastError: unknown = null
+const parseDate = (dateValue?: string): number => {
+  if (!dateValue) return 0
+  const timestamp = new Date(dateValue).getTime()
+  return Number.isNaN(timestamp) ? 0 : timestamp
+}
 
-  for (let attempt = 0; attempt <= MAX_RETRIES; attempt += 1) {
-    const timeoutController = new AbortController()
-    const timeoutId = setTimeout(() => {
-      timeoutController.abort()
-    }, REQUEST_TIMEOUT_MS)
+const flattenArray = (value: unknown): string[] => {
+  if (!Array.isArray(value)) return [String(value)]
+  return value.flatMap((item) => flattenArray(item))
+}
 
-    try {
-      return await operation(timeoutController.signal)
-    } catch (error) {
-      lastError = error
-      const canRetry = isRetryableError(error) && attempt < MAX_RETRIES
-      if (!canRetry) break
-      await delay(RETRY_BASE_DELAY_MS * (attempt + 1))
-    } finally {
-      clearTimeout(timeoutId)
-    }
+const parseTechno = (value: unknown): string[] => {
+  if (Array.isArray(value)) {
+    return flattenArray(value)
+      .map((item) => item.trim())
+      .filter(Boolean)
   }
 
-  throw lastError
+  if (typeof value === 'string') {
+    const trimmed = value.trim()
+    if (!trimmed) return []
+
+    try {
+      const parsed = JSON.parse(trimmed)
+      if (Array.isArray(parsed)) {
+        return flattenArray(parsed)
+          .map((item) => item.trim())
+          .filter(Boolean)
+      }
+    } catch {
+      // Se nao for JSON valido, cai para o split simples.
+    }
+
+    return trimmed
+      .split(',')
+      .map((item) => item.replace(/[\[\]"]/g, '').trim())
+      .filter(Boolean)
+  }
+
+  return []
+}
+
+const normalizeProject = (project: RawProject, index: number): Project => ({
+  id: String(project.id ?? `mock-project-${index}`),
+  nome: project.nome ?? 'Projeto sem nome',
+  miniDesc: project.miniDesc ?? project.mini_desc ?? '',
+  descricao: project.descricao ?? '',
+  obje: project.obje ?? '',
+  lance: project.lance ?? '',
+  abertura: project.abertura ?? '',
+  createAt: project.create_at ?? '',
+  tecno: parseTechno(project.tecno),
+  img: project.img ?? '',
+  url: project.url ?? '',
+  type: project.type ?? 'ALL',
+  link: project.link ?? '',
+})
+
+const getAllProjects = (): Project[] => {
+  const source = Array.isArray(rawProjects) ? (rawProjects as RawProject[]) : []
+  return source
+    .map((project, index) => normalizeProject(project, index))
+    .sort((a, b) => parseDate(b.createAt) - parseDate(a.createAt))
 }
 
 export const projectService = {
-  // Buscar TODOS os projetos (público)
   async getProjects(): Promise<Project[]> {
-    try {
-      const projects = await runWithRetry(async (signal) => {
-        const { data, error } = await supabase
-          .from('projects')
-          .select('*')
-          .order('create_at', { ascending: false })
-          .abortSignal(signal)
-
-        if (error) throw error
-        return data || []
-      })
-
-      setArrayCache(PROJECTS_CACHE_KEY, projects)
-      return projects
-    } catch (error) {
-      const cachedProjects = getProjectsCache()
-      if (cachedProjects.length > 0) return cachedProjects
-
-      console.error('Erro ao buscar projetos:', error)
-      throw error
-    }
+    const projects = getAllProjects()
+    setArrayCache(PROJECTS_CACHE_KEY, projects)
+    return projects
   },
 
-  // Buscar projetos por tipo
   async getProjectsByType(type: string): Promise<Project[]> {
     const cacheKey = `portfolio_projects_type_${type.toLowerCase()}_v1`
-
-    try {
-      const projects = await runWithRetry(async (signal) => {
-        const { data, error } = await supabase
-          .from('projects')
-          .select('*')
-          .eq('type', type)
-          .order('create_at', { ascending: false })
-          .abortSignal(signal)
-
-        if (error) throw error
-        return data || []
-      })
-
-      setArrayCache(cacheKey, projects)
-      return projects
-    } catch (error) {
-      const cachedProjects = getArrayCache(cacheKey)
-      if (cachedProjects.length > 0) return cachedProjects
-
-      console.error(`Erro ao buscar projetos do tipo ${type}:`, error)
-      throw error
-    }
+    const projects = getAllProjects().filter(
+      (project) => project.type.toLowerCase() === type.toLowerCase(),
+    )
+    setArrayCache(cacheKey, projects)
+    return projects
   },
 
-  // Buscar projeto por ID
   async getProjectById(id: string): Promise<Project | null> {
     const cacheKey = `portfolio_project_${id}_v1`
-
-    try {
-      const project = await runWithRetry(async (signal) => {
-        const { data, error } = await supabase
-          .from('projects')
-          .select('*')
-          .eq('id', id)
-          .single()
-          .abortSignal(signal)
-
-        if (error) throw error
-        return data
-      })
-
-      if (project) setProjectCache(cacheKey, project)
+    const project = getAllProjects().find((item) => item.id === id) ?? null
+    if (project) {
+      setProjectCache(cacheKey, project)
       return project
-    } catch (error) {
-      const cachedProject = getProjectCache(cacheKey)
-      if (cachedProject) return cachedProject
-
-      console.error(`Erro ao buscar projeto ${id}:`, error)
-      throw error
     }
+
+    return getProjectCache(cacheKey)
   },
 
-  // Buscar projetos com limite (para carousel/home)
   async getFeaturedProjects(limit: number = 3): Promise<Project[]> {
-    try {
-      const projects = await runWithRetry(async (signal) => {
-        const { data, error } = await supabase
-          .from('projects')
-          .select('*')
-          .order('create_at', { ascending: false })
-          .limit(limit)
-          .abortSignal(signal)
-
-        if (error) throw error
-        return data || []
-      })
-
-      setArrayCache(`${FEATURED_CACHE_KEY}_${limit}`, projects)
-      return projects
-    } catch (error) {
-      const cachedProjects = getArrayCache(`${FEATURED_CACHE_KEY}_${limit}`)
-      if (cachedProjects.length > 0) return cachedProjects
-
-      console.error('Erro ao buscar projetos em destaque:', error)
-      throw error
-    }
+    const projects = getAllProjects().slice(0, limit)
+    setArrayCache(`${FEATURED_CACHE_KEY}_${limit}`, projects)
+    return projects
   },
 
-  // Buscar projetos com filtro de tecnologias
   async getProjectsByTech(tech: string): Promise<Project[]> {
-    const cacheKey = `portfolio_projects_tech_${tech.toLowerCase()}_v1`
-
-    try {
-      const projects = await runWithRetry(async (signal) => {
-        const { data, error } = await supabase
-          .from('projects')
-          .select('*')
-          .contains('tecno', [tech])
-          .order('create_at', { ascending: false })
-          .abortSignal(signal)
-
-        if (error) throw error
-        return data || []
-      })
-
-      setArrayCache(cacheKey, projects)
-      return projects
-    } catch (error) {
-      const cachedProjects = getArrayCache(cacheKey)
-      if (cachedProjects.length > 0) return cachedProjects
-
-      console.error(`Erro ao buscar projetos com tecnologia ${tech}:`, error)
-      throw error
-    }
+    const normalizedTech = tech.trim().toLowerCase()
+    const cacheKey = `portfolio_projects_tech_${normalizedTech}_v1`
+    const projects = getAllProjects().filter((project) =>
+      project.tecno.some((projectTech) => projectTech.toLowerCase() === normalizedTech),
+    )
+    setArrayCache(cacheKey, projects)
+    return projects
   },
 
-  // Buscar projetos recentes (últimos 30 dias)
   async getRecentProjects(): Promise<Project[]> {
-    try {
-      const thirtyDaysAgo = new Date()
-      thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30)
-
-      const projects = await runWithRetry(async (signal) => {
-        const { data, error } = await supabase
-          .from('projects')
-          .select('*')
-          .gte('create_at', thirtyDaysAgo.toISOString())
-          .order('create_at', { ascending: false })
-          .abortSignal(signal)
-
-        if (error) throw error
-        return data || []
-      })
-
-      setArrayCache(RECENT_CACHE_KEY, projects)
-      return projects
-    } catch (error) {
-      const cachedProjects = getArrayCache(RECENT_CACHE_KEY)
-      if (cachedProjects.length > 0) return cachedProjects
-
-      console.error('Erro ao buscar projetos recentes:', error)
-      throw error
-    }
-  }
+    const thirtyDaysAgo = Date.now() - 30 * 24 * 60 * 60 * 1000
+    const projects = getAllProjects().filter(
+      (project) => parseDate(project.createAt || project.abertura) >= thirtyDaysAgo,
+    )
+    setArrayCache(RECENT_CACHE_KEY, projects)
+    return projects
+  },
 }

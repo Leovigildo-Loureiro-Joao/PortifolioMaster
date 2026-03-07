@@ -1,11 +1,12 @@
 export interface Project {
-  id: number;
+  id: string;
   nome: string;
   miniDesc: string;
   descricao: string;
   obje: string;
   lance: string;
   abertura: string;
+  createAt?: string;
   tecno: string[];
   img: string;
   url: string;

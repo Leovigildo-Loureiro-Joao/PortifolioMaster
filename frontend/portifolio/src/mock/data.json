@@ -1,0 +1,17 @@
+[
+  {
+    "id": "386588fe-a4f9-4647-83da-649b6b9a5dc1",
+    "img": "https://res.cloudinary.com/dh6xfyjxu/image/upload/v1760067398/bsakcmxm8r5oawrhcdab.png",
+    "url": "https://res.cloudinary.com/dh6xfyjxu/video/upload/v1760067434/psymgpfoaf0m1homwknu.webm",
+    "nome": "Portfolio Vision",
+    "link": "https://github.com/Leovigildo-Loureiro-Joao/PortifolioMaster",
+    "mini_desc": "Uma plataforma pessoal de portfólio dinâmico.",
+    "descricao": "Este projeto foi desenvolvido em Spring Boot com React para apresentar os meus trabalhos e experiências. O backend está ligado a uma base PostgreSQL e o upload de imagens será feito via Cloudinary",
+    "obje": "Criar um portfólio com backend escalável e integração com serviços em nuvem.",
+    "lance": "Focado em performance e design minimalista.",
+    "abertura": "2025-10-05",
+    "type": "WEB",
+    "tecno": "[[\"Spring\", \"React\", \"TypeScript\", \"PostgreSQL\", \"Docker\", \"postman\"]]",
+    "create_at": "2025-12-06 16:58:58.470297+00"
+  }
+]
