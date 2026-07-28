@@ -2,14 +2,15 @@ import { motion, Variants } from "framer-motion";
 import { useState } from "react";
 import forma from "../../assets/images/Caminho6.png";
 import gif from "../../assets/images/f1d6a204-0a35-4b48-a849-8421515cda54.gif";
-import { mySelf, impactMetrics, timeline } from "../../data/mySelf";
+import { mySelf, impactMetrics, timeline, professionalInfo, keyCompetencies } from "../../data/mySelf";
 import { 
   FiMapPin, FiCpu, FiCalendar, FiGithub, 
-  FiClock, FiCode, FiServer, FiUsers 
+  FiClock, FiCode, FiServer, FiUsers,
+  FiTarget, FiLayers, FiExternalLink
 } from "react-icons/fi";
 
 export const MySelf = () => {
-  const [activeTab, setActiveTab] = useState<"about" | "timeline">("about");
+  const [activeTab, setActiveTab] = useState<"about" | "timeline" | "skills">("about");
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -25,6 +26,36 @@ export const MySelf = () => {
   const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  };
+
+  const getTimelineIcon = (type: string) => {
+    switch (type) {
+      case 'work': return <FiServer className="w-3 h-3" />;
+      case 'startup': return <FiTarget className="w-3 h-3" />;
+      case 'web': return <FiCode className="w-3 h-3" />;
+      case 'mobile': return <FiLayers className="w-3 h-3" />;
+      default: return <FiCode className="w-3 h-3" />;
+    }
+  };
+
+  const getTimelineColor = (type: string) => {
+    switch (type) {
+      case 'work': return 'bg-green-100 text-green-600';
+      case 'startup': return 'bg-orange-100 text-orange-600';
+      case 'web': return 'bg-blue-100 text-blue-600';
+      case 'mobile': return 'bg-purple-100 text-purple-600';
+      default: return 'bg-gray-100 text-gray-600';
+    }
+  };
+
+  const getTimelineLabel = (type: string) => {
+    switch (type) {
+      case 'work': return 'Trabalho';
+      case 'startup': return 'Startup';
+      case 'web': return 'Web';
+      case 'mobile': return 'Mobile';
+      default: return 'Projeto';
+    }
   };
 
   return (
@@ -56,8 +87,7 @@ export const MySelf = () => {
             <span className="w-16 h-1 bg-secondry rounded-full"></span>
           </div>
           <p className="mx-auto max-w-2xl text-sm text-gray-600 sm:text-base">
-            Desenvolvedor full-stack angolano com foco em soluções robustas, offline-first 
-            e com impacto real. De Angola para o mundo.
+            {professionalInfo.summary}
           </p>
         </motion.div>
 
@@ -87,7 +117,7 @@ export const MySelf = () => {
           })}
         </motion.div>
 
-        {/* Tabs: About / Timeline */}
+        {/* Tabs: About / Timeline / Skills */}
         <div className="mb-8 flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
           <button
             onClick={() => setActiveTab("about")}
@@ -110,6 +140,17 @@ export const MySelf = () => {
           >
             <FiClock className="w-4 h-4" />
             Trajetória
+          </button>
+          <button
+            onClick={() => setActiveTab("skills")}
+            className={`flex items-center justify-center gap-2 rounded-full px-5 py-2 font-medium transition-all sm:px-6 ${
+              activeTab === "skills"
+                ? "bg-green-500 text-white shadow-lg shadow-green-500/30"
+                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+            }`}
+          >
+            <FiTarget className="w-4 h-4" />
+            Competências
           </button>
         </div>
 
@@ -165,8 +206,20 @@ export const MySelf = () => {
                     </motion.div>
                   );
                 })}
+
+                {/* Mission & Objective */}
+                <motion.div
+                  variants={itemVariants}
+                  className="p-4 rounded-xl bg-gradient-to-r from-primary/5 to-secondry/5 border border-primary/10"
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <FiTarget className="w-4 h-4 text-primary" />
+                    <span className="text-xs font-semibold text-primary">Missão</span>
+                  </div>
+                  <p className="text-sm text-gray-700 italic">"{professionalInfo.mission}"</p>
+                </motion.div>
               </motion.div>
-            ) : (
+            ) : activeTab === "timeline" ? (
               // Timeline content
               <motion.div variants={containerVariants} className="space-y-4">
                 <h3 className="mb-4 flex items-center gap-2 text-base font-semibold text-gray-800 sm:text-lg">
@@ -183,13 +236,9 @@ export const MySelf = () => {
                     <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-md hover:shadow-lg transition-all">
                       <div className="flex items-center gap-2 mb-1">
                         <span className="text-xs font-bold text-primary">{item.year}</span>
-                        <span className={`text-xs px-2 py-0.5 rounded-full flex items-center gap-1 ${
-                          item.type === 'web' 
-                            ? 'bg-blue-100 text-blue-600' 
-                            : 'bg-purple-100 text-purple-600'
-                        }`}>
-                          {item.type === 'web' ? <FiCode className="w-3 h-3" /> : <FiServer className="w-3 h-3" />}
-                          {item.type === 'web' ? 'Web' : 'Mobile'}
+                        <span className={`text-xs px-2 py-0.5 rounded-full flex items-center gap-1 ${getTimelineColor(item.type)}`}>
+                          {getTimelineIcon(item.type)}
+                          {getTimelineLabel(item.type)}
                         </span>
                       </div>
                       <h4 className="text-sm font-semibold text-gray-800 sm:text-base">{item.title}</h4>
@@ -197,6 +246,39 @@ export const MySelf = () => {
                     </div>
                   </motion.div>
                 ))}
+              </motion.div>
+            ) : (
+              // Skills content
+              <motion.div variants={containerVariants} className="space-y-4">
+                <h3 className="mb-4 flex items-center gap-2 text-base font-semibold text-gray-800 sm:text-lg">
+                  <FiTarget className="text-green-500" />
+                  Competências-chave
+                </h3>
+                {keyCompetencies.map((comp, index) => {
+                  const IconComponent = comp.icon;
+                  return (
+                    <motion.div
+                      key={index}
+                      variants={itemVariants}
+                      whileHover={{ scale: 1.02, x: -5 }}
+                      className="p-4 rounded-xl bg-white/80 backdrop-blur-sm border border-white/20 shadow-md hover:shadow-lg transition-all"
+                    >
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="text-primary">
+                          <IconComponent className="w-5 h-5" />
+                        </div>
+                        <h4 className="text-sm font-semibold text-gray-800">{comp.name}</h4>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {comp.skills.map((skill, i) => (
+                          <span key={i} className="text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded-full">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </motion.div>
             )}
           </motion.div>
@@ -219,13 +301,13 @@ export const MySelf = () => {
             {/* Main image */}
             <motion.img
               src={gif}
-              alt="Leovigildo João - Desenvolvedor Full Stack"
+              alt="Leovigildo João - Engenheiro de Software Full-Stack"
               className="relative z-10 w-full rounded-2xl border-4 border-white/50 shadow-2xl md:w-[90%]"
               whileHover={{ scale: 1.05, rotate: 1 }}
               transition={{ duration: 0.5 }}
             />
             
-            {/* Floating badge */}
+            {/* Floating badge - Location */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -233,7 +315,18 @@ export const MySelf = () => {
               className="absolute bottom-2 right-2 z-20 flex items-center gap-2 rounded-xl bg-white p-3 shadow-lg sm:-bottom-4 sm:-right-4"
             >
               <FiMapPin className="text-primary" />
-              <span className="text-xs font-medium sm:text-sm">Angola</span>
+              <span className="text-xs font-medium sm:text-sm">{professionalInfo.location}</span>
+            </motion.div>
+
+            {/* Floating badge - Role */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+              className="absolute top-2 left-2 z-20 flex items-center gap-2 rounded-xl bg-white p-3 shadow-lg sm:-top-4 sm:-left-4"
+            >
+              <FiCode className="text-secondry" />
+              <span className="text-xs font-medium sm:text-sm">{professionalInfo.role}</span>
             </motion.div>
           </motion.div>
         </div>
@@ -243,7 +336,7 @@ export const MySelf = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 flex justify-center"
+          className="mt-16 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
         >
           <a
             href="https://github.com/Leovigildo-Loureiro-Joao"
@@ -254,8 +347,17 @@ export const MySelf = () => {
             <FiGithub className="w-5 h-5" />
             <span>Ver código no GitHub</span>
             <span className="text-sm bg-white/20 px-2 py-1 rounded-full group-hover:bg-white/30 transition">
-              4+ projetos
+              5+ projetos
             </span>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/leovigildo-loureiro-joao/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-3 px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
+          >
+            <FiExternalLink className="w-5 h-5" />
+            <span>LinkedIn</span>
           </a>
         </motion.div>
       </div>

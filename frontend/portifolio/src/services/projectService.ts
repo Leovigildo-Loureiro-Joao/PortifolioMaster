@@ -1,5 +1,11 @@
 import rawProjects from '../mock/data.json'
 import { Project } from '../types/project'
+import loadCodeImg from '../assets/images/load_code.jpg'
+import edugestorMockup from '../assets/mockups/edugestor.png'
+import audiolearnMockup from '../assets/mockups/audiolearn.png'
+import kbolsMockup from '../assets/mockups/kbols.png'
+import sapphireMockup from '../assets/mockups/sapphire-soiree.png'
+import uondoMockup from '../assets/mockups/uondo.png'
 
 const PROJECTS_CACHE_KEY = 'portfolio_projects_cache_v1'
 const FEATURED_CACHE_KEY = 'portfolio_featured_projects_cache_v1'
@@ -20,6 +26,7 @@ type RawProject = {
   url?: string
   type?: string
   link?: string
+  status?: string
 }
 
 const getArrayCache = (cacheKey: string): Project[] => {
@@ -100,21 +107,33 @@ const parseTechno = (value: unknown): string[] => {
   return []
 }
 
-const normalizeProject = (project: RawProject, index: number): Project => ({
-  id: String(project.id ?? `mock-project-${index}`),
-  nome: project.nome ?? 'Projeto sem nome',
-  miniDesc: project.miniDesc ?? project.mini_desc ?? '',
-  descricao: project.descricao ?? '',
-  obje: project.obje ?? '',
-  lance: project.lance ?? '',
-  abertura: project.abertura ?? '',
-  createAt: project.create_at ?? '',
-  tecno: parseTechno(project.tecno),
-  img: project.img ?? '',
-  url: project.url ?? '',
-  type: project.type ?? 'ALL',
-  link: project.link ?? '',
-})
+const mockupMap: Record<string, string> = {
+  'EduGestor': edugestorMockup,
+  'AudioLearn': audiolearnMockup,
+  'KBols - Imetro': kbolsMockup,
+  'Sapphire Soiree': sapphireMockup,
+  'UONDO': uondoMockup,
+}
+
+const normalizeProject = (project: RawProject, index: number): Project => {
+  const mockImg = mockupMap[project.nome ?? '']
+  return {
+    id: String(project.id ?? `mock-project-${index}`),
+    nome: project.nome ?? 'Projeto sem nome',
+    miniDesc: project.miniDesc ?? project.mini_desc ?? '',
+    descricao: project.descricao ?? '',
+    obje: project.obje ?? '',
+    lance: project.lance ?? '',
+    abertura: project.abertura ?? '',
+    createAt: project.create_at ?? '',
+    tecno: parseTechno(project.tecno),
+    img: mockImg || ((project.img && !project.img.includes('placeholder')) ? project.img : loadCodeImg),
+    url: project.url ?? '',
+    type: project.type ?? 'ALL',
+    link: project.link ?? '',
+    status: project.status,
+  }
+}
 
 const getAllProjects = (): Project[] => {
   const source = Array.isArray(rawProjects) ? (rawProjects as RawProject[]) : []

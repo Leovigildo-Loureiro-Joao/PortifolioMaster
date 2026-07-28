@@ -12,6 +12,7 @@ export interface Project {
   url: string;
   type: string;
   link: string;
+  status?: string;
 }
 
 export interface ProjectRequest {

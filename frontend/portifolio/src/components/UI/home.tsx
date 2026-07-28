@@ -1,5 +1,6 @@
 import { Typewriter } from "react-simple-typewriter";
 import inovation from "../../assets/images/Innovation.gif";
+import { professionalInfo } from "../../data/mySelf";
 
 export const Home = () => {
     // Função para rolagem suave
@@ -16,7 +17,7 @@ export const Home = () => {
                     {/* Título mais direto e de impacto */}
                     <div id="titulo">
                         <h1 className="pb-2 text-[clamp(1.9rem,4.6vw,3.5rem)] font-bold leading-[1.08]">
-                            <span className="text-primary">Full-Stack Developer</span>
+                            <span className="text-primary">{professionalInfo.role}</span>
                             <br />
                             que constrói{" "}
                             <span className="text-secondry">
@@ -48,15 +49,12 @@ export const Home = () => {
                     {/* Descrição mais focada em valor/resultado */}
                     <div id="text-div" className="flex flex-col gap-6">
                         <p className="max-w-2xl text-[clamp(0.95rem,1.35vw,1.08rem)] leading-relaxed text-text_color/90">
-                            Transformo ideias em produtos digitais robustos. 
-                            Com experiência em projetos do zero à produção, 
-                            meu foco é criar sistemas que resolvem problemas reais 
-                            com tecnologia de ponta e boas práticas de engenharia.
+                            {professionalInfo.summary}
                         </p>
 
                         {/* Tech stack visual - NOVO */}
                         <div className="mt-2 flex flex-wrap gap-2 sm:gap-3">
-                            {["Spring Boot", "React", "TypeScript", "PostgreSQL", "Docker", "Flutter"].map((tech) => (
+                            {professionalInfo.technologies.map((tech) => (
                                 <span 
                                     key={tech}
                                     className="cursor-default rounded-full border border-primary/20 bg-white/5 px-3 py-2 text-[0.68rem] font-mono text-primary transition-all hover:bg-primary/10 sm:px-4 sm:text-[0.72rem] xl:text-xs"
@@ -93,10 +91,10 @@ export const Home = () => {
             {/* NOVA SECÇÃO: Highlights / Proof */}
             <div id="highlights" className="mt-12 grid grid-cols-2 gap-4 border-t border-white/10 pt-8 sm:mt-16 md:grid-cols-4">
                 {[
-                    { number: "4+", label: "Projetos em Produção" },
-                    { number: "100%", label: "Código Próprio" },
+                    { number: "5+", label: "Projetos em Produção" },
+                    { number: "Full-Stack", label: "React + Spring Boot" },
                     { number: "Offline", label: "Arquitetura First" },
-                    { number: "Seguro", label: "Foco em Proteção" }
+                    { number: "3+", label: "Anos de Experiência" }
                 ].map((item, index) => (
                     <div key={index} className="text-center">
                         <div className="text-[clamp(1.25rem,2.1vw,1.7rem)] font-bold text-primary">{item.number}</div>

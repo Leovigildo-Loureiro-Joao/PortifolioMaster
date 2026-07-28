@@ -1,20 +1,38 @@
-// components/Footer.tsx
+import { useNavigate, useLocation } from "react-router-dom";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import { FiHeart, FiArrowUp } from "react-icons/fi";
 
 export const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleNavClick = (e: React.MouseEvent, sectionId: string) => {
+    e.preventDefault();
+    if (location.pathname !== "/") {
+      navigate(`/#${sectionId}`);
+      return;
+    }
+    window.history.replaceState(null, "", `/#${sectionId}`);
+    scrollToSection(sectionId);
   };
 
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="relative bg-gray-900 px-4 py-12 text-gray-300 sm:px-6 md:px-10">
-      {/* Top gradient border */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondry"></div>
-      
-      {/* Back to top button */}
+
       <button
         onClick={scrollToTop}
         className="absolute -top-5 left-1/2 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full bg-gradient-to-r from-primary to-secondry text-white shadow-lg transition-transform hover:scale-110"
@@ -24,9 +42,7 @@ export const Footer = () => {
       </button>
 
       <div className="max-w-6xl mx-auto">
-        {/* Main footer content */}
         <div className="mb-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
           <div className="max-w-xs">
             <h3 className="mb-2 text-lg font-semibold text-white sm:text-xl">
               Leovigildo Loureiro João
@@ -41,37 +57,35 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div className="min-w-0">
             <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-white sm:text-sm">
               Navegação
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
-                <a href="#home" className="hover:text-primary transition-colors flex items-center gap-2">
+                <a href="/#home" onClick={(e) => handleNavClick(e, "home")} className="hover:text-primary transition-colors flex items-center gap-2 cursor-pointer">
                   <span className="w-1 h-1 bg-primary rounded-full opacity-0 group-hover:opacity-100"></span>
                   Início
                 </a>
               </li>
               <li>
-                <a href="#projecto" className="hover:text-primary transition-colors">
+                <a href="/#projecto" onClick={(e) => handleNavClick(e, "projecto")} className="hover:text-primary transition-colors cursor-pointer">
                   Projetos
                 </a>
               </li>
               <li>
-                <a href="#habilidades" className="hover:text-primary transition-colors">
+                <a href="/#habilidades" onClick={(e) => handleNavClick(e, "habilidades")} className="hover:text-primary transition-colors cursor-pointer">
                   Competências
                 </a>
               </li>
               <li>
-                <a href="#contacto" className="hover:text-primary transition-colors">
+                <a href="/#contacto" onClick={(e) => handleNavClick(e, "contacto")} className="hover:text-primary transition-colors cursor-pointer">
                   Contacto
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Legal / Info */}
           <div>
             <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-white sm:text-sm">
               Legal
@@ -90,14 +104,13 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Social */}
           <div>
             <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-white sm:text-sm">
               Redes
             </h4>
             <div className="flex flex-wrap gap-3">
-              <a 
-                href="https://github.com/Leovigildo-Loureiro-Joao" 
+              <a
+                href="https://github.com/Leovigildo-Loureiro-Joao"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors group"
@@ -105,8 +118,8 @@ export const Footer = () => {
               >
                 <FaGithub className="text-gray-300 group-hover:text-white transition-colors" />
               </a>
-              <a 
-                href="https://linkedin.com/in/leovigildo-loureiro-joao" 
+              <a
+                href="https://linkedin.com/in/leovigildo-loureiro-joao"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors group"
@@ -114,8 +127,8 @@ export const Footer = () => {
               >
                 <FaLinkedin className="text-gray-300 group-hover:text-white transition-colors" />
               </a>
-              <a 
-                href="mailto:leovigildojao902@gmail.com" 
+              <a
+                href="mailto:leovigildojao902@gmail.com"
                 className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors group"
                 aria-label="Email"
               >
@@ -125,7 +138,6 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="mt-8 flex flex-col gap-2 border-t border-gray-800 pt-8 text-center text-xs text-gray-500 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:text-left">
           <p>
             Desenvolvido com <FiHeart className="inline w-3 h-3 text-secondry" /> em Angola

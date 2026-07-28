@@ -1,26 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: 'class',
-   content: [
-    "./src/**/*.{js,jsx,ts,tsx}", // Inclui todos os arquivos fonte
+  content: [
+    "./index.html",
+    "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
-      animation: {
-        'fadeIn': 'fadeIn 0.8s ease-in-out',
-        'slideUp': 'slideUp 0.6s ease-out',
-        'pulse-slow': 'pulse 3s infinite',
-      },
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        slideUp: {
-          '0%': { transform: 'translateY(20px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
-        },
-      },
       colors: {
         dark: '#121214',
         light: '#E1E1E6',
@@ -36,30 +22,40 @@ export default {
         mono: ['"Roboto Mono"', 'monospace'],
       },
       screens: {
-        'lg': {'max': '1024px'},
-        // => @media (max-width: 1024px) { ... }
+        'lg': { 'max': '1024px' },
       },
-      backgroundImage:{
-        "sombra":"url('/assets/images/Grupo12.png')"
+      backgroundImage: {
+        "sombra": "url('/assets/images/Grupo12.png')",
       },
-      borderRadius:{
-        boder_radius_big:"100%",
-        boder_radius:"8px",
-      },
-      animation:{
-       
+      borderRadius: {
+        boder_radius_big: "100%",
+        boder_radius: "8px",
       },
       fontSize: {
-          "title": "2.4rem",
-          "subtitle": "1.5rem",
-          "Bigsubtitle": "1.6rem",
-          "bigTitle": "3rem",
-          "Bigprg": "1.4rem",
-          "prg": "1.2rem",
-          "smprg": "1rem",
+        "title": "2.4rem",
+        "subtitle": "1.5rem",
+        "Bigsubtitle": "1.6rem",
+        "bigTitle": "3rem",
+        "Bigprg": "1.4rem",
+        "prg": "1.2rem",
+        "smprg": "1rem",
+      },
+      animation: {
+        'fadeIn': 'fadeIn 0.8s ease-in-out',
+        'slideUp': 'slideUp 0.6s ease-out',
+        'pulse-slow': 'pulse 3s infinite',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(20px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+      },
     },
-      plugins: [
-      ],
-    }
-  }
+  },
+  plugins: [],
 }

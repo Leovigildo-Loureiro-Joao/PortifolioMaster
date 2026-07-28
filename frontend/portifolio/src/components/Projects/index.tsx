@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { useProjects } from "../../hooks/useProjects";
 import { ProjectCard } from "./ProjectCard";
-import { ProjectModal } from "./ProjectModal";
 import { Project } from "../../types/project";
 import { LoadingSpinner } from "../UI/LoadingSprinner";
 import { ErrorMessage } from "../UI/ErrorMessage";
@@ -10,11 +10,9 @@ import { ProjectFilters } from "./ProjectFilters";
 
 export const Projects = () => {
   const [filter, setFilter] = useState("All");
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  
+  const navigate = useNavigate();
   const { projects, loading, error } = useProjects();
 
-  // 🔹 Usando loading e error do hook
   if (loading) {
     return <LoadingSpinner />;
   }
@@ -23,21 +21,23 @@ export const Projects = () => {
     return <ErrorMessage message={error}/>;
   }
 
-const filteredProjects = filter === "All" 
+  const filteredProjects = filter === "All"
     ? (Array.isArray(projects) ? projects : [])
-    : (Array.isArray(projects) 
+    : (Array.isArray(projects)
         ? projects.filter((p) => p.type?.toLowerCase() === filter.toLowerCase())
         : []);
 
+  const handleSelectProject = (project: Project) => {
+    navigate(`/projects/${project.id}`);
+  };
+
   return (
     <section id="projecto" className="relative px-4 py-20 sm:px-6 md:px-10 lg:px-12">
-      {/* 🔹 Título */}
       <div className="section-title flex w-full max-w-xs flex-col sm:px-4 md:px-10 lg:px-20">
         <h1 className="text-lg font-bold text-primary sm:text-xl">Projectos</h1>
         <span className="h-[5px] w-full rounded-boder_radius bg-gradient-to-r from-primary to-secondry"></span>
       </div>
 
-      {/* 🔹 Filtros */}
       <ProjectFilters filter={filter} setFilter={setFilter} />
 
       <div className="relative w-full px-0 py-10 sm:px-2">
@@ -55,19 +55,13 @@ const filteredProjects = filter === "All"
                 <ProjectCard
                   key={project.id}
                   project={project}
-                  onSelect={setSelectedProject}
+                  onSelect={handleSelectProject}
                 />
               ))}
             </motion.div>
           </AnimatePresence>
         </div>
       </div>
-
-      {/* 🔹 Modal */}
-      <ProjectModal
-        selected={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
     </section>
   );
 };

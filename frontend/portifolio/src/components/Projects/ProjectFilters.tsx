@@ -9,7 +9,8 @@ interface ProjectFiltersProps {
 const FILTERS = [
   { id: "All", label: "Todos", icon: FiGrid },
   { id: "WEB", label: "Web", icon: FiMonitor },
-  { id: "MOBILE", label: "Mobile", icon: FiSmartphone }
+  { id: "MOBILE", label: "Mobile", icon: FiSmartphone },
+  { id: "DESKTOP", label: "Desktop", icon: FiMonitor }
 ];
 
 export const ProjectFilters = ({ filter, setFilter }: ProjectFiltersProps) => {
