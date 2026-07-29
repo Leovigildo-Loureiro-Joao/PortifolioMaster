@@ -6,6 +6,7 @@ import audiolearnMockup from '../assets/mockups/audiolearn.png'
 import kbolsMockup from '../assets/mockups/kbols.png'
 import sapphireMockup from '../assets/mockups/sapphire-soiree.png'
 import uondoMockup from '../assets/mockups/uondo.png'
+import baluarteMockup from '../assets/mockups/baluarte.png'
 
 const PROJECTS_CACHE_KEY = 'portfolio_projects_cache_v1'
 const FEATURED_CACHE_KEY = 'portfolio_featured_projects_cache_v1'
@@ -113,6 +114,7 @@ const mockupMap: Record<string, string> = {
   'KBols - Imetro': kbolsMockup,
   'Sapphire Soiree': sapphireMockup,
   'UONDO': uondoMockup,
+  'BaluarteInfo': baluarteMockup,
 }
 
 const normalizeProject = (project: RawProject, index: number): Project => {
