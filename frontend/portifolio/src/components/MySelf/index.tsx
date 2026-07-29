@@ -1,7 +1,7 @@
 import { motion, Variants } from "framer-motion";
 import { useState } from "react";
 import forma from "../../assets/images/Caminho6.png";
-import gif from "../../assets/images/f1d6a204-0a35-4b48-a849-8421515cda54.gif";
+import perfil from "../../assets/images/perfil.png";
 import { mySelf, impactMetrics, timeline, professionalInfo, keyCompetencies } from "../../data/mySelf";
 import { 
   FiMapPin, FiCpu, FiCalendar, FiGithub, 
@@ -300,7 +300,7 @@ export const MySelf = () => {
             
             {/* Main image */}
             <motion.img
-              src={gif}
+              src={perfil}
               alt="Leovigildo João - Engenheiro de Software Full-Stack"
               className="relative z-10 w-full rounded-2xl border-4 border-white/50 shadow-2xl md:w-[90%]"
               whileHover={{ scale: 1.05, rotate: 1 }}
