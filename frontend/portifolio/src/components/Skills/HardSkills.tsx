@@ -73,7 +73,7 @@ export const HardSkills = () => {
                   {/* Ícone com cor da tecnologia */}
                   <div className="relative mb-3 flex justify-center">
                     <div 
-                      className="flex h-16 w-16 items-center justify-center rounded-full text-3xl transition-all duration-300 group-hover:scale-110 sm:text-4xl"
+                      className="flex translate-y-2 h-16 w-16 items-center justify-center rounded-full text-3xl transition-all duration-300 group-hover:scale-110 sm:text-4xl"
                       style={{ color: skill.color }}
                     >
                       <skill.icon />
