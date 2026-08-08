@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
-export const Header = () => {
+export const Header = () => { 
   const [links] = useState([
     { href: "/#home", data: "Início" },
     { href: "/#projecto", data: "Projetos" },
