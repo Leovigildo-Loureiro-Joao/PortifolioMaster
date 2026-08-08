@@ -218,6 +218,20 @@ export const MySelf = () => {
                   </div>
                   <p className="text-sm text-gray-700 italic">"{professionalInfo.mission}"</p>
                 </motion.div>
+
+                {/* Uso de Inteligência Artificial */}
+                <motion.div
+                  variants={itemVariants}
+                  className="p-4 rounded-xl bg-white/80 backdrop-blur-sm border border-primary/10 shadow-md"
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <FiCpu className="w-4 h-4 text-secondry" />
+                    <span className="text-xs font-semibold text-secondry">Uso de Inteligência Artificial</span>
+                  </div>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    Utilizo ferramentas de inteligência artificial como apoio ao desenvolvimento, pesquisa técnica, análise de soluções e revisão de código, mantendo a responsabilidade pelas decisões técnicas e implementação final.
+                  </p>
+                </motion.div>
               </motion.div>
             ) : activeTab === "timeline" ? (
               // Timeline content
@@ -301,7 +315,7 @@ export const MySelf = () => {
             {/* Main image */}
             <motion.img
               src={perfil}
-              alt="Leovigildo João - Engenheiro de Software Full-Stack"
+              alt="Leovigildo João - Desenvolvedor Full-Stack"
               className="relative z-10 w-full rounded-2xl border-4 border-white/50 shadow-2xl md:w-[90%]"
               whileHover={{ scale: 1.05, rotate: 1 }}
               transition={{ duration: 0.5 }}

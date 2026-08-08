@@ -36,8 +36,7 @@ export const SoftSkills = () => {
             transition={{ delay: 0.1 }}
             className="mx-auto max-w-2xl text-sm text-gray-600 sm:text-base"
           >
-            Tecnologia resolve problemas, mas são as pessoas que constroem soluções.
-            Estas são as competências que levo para cada equipa.
+            A tecnologia cria ferramentas, mas são as pessoas que transformam essas ferramentas em soluções. Estas são competências que aplico no desenvolvimento individual e em equipa.
           </motion.p>
         </div>
 

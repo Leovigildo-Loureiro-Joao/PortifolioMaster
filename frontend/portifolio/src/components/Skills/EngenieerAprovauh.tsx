@@ -9,37 +9,37 @@ const principles = [
   {
     icon: FiServer,
     title: "Arquitetura Escalável",
-    description: "Desenho sistemas pensando no crescimento futuro, com separação clara de responsabilidades e padrões de design robustos.",
+    description: "Estruturo sistemas com separação clara de responsabilidades, facilitando manutenção, evolução e crescimento futuro.",
     color: "from-blue-500 to-cyan-500"
   },
   {
     icon: FiWifiOff,
     title: "Offline-First",
-    description: "Experiências que funcionam sem internet, com sincronização inteligente quando a conexão é restabelecida.",
+    description: "Desenvolvo experiências capazes de funcionar com conectividade limitada através de armazenamento local e sincronização inteligente.",
     color: "from-purple-500 to-pink-500"
   },
   {
     icon: FiLock,
     title: "Segurança por Design",
-    description: "Práticas de segurança desde a concepção: encriptação, autenticação robusta e proteção de dados sensíveis.",
+    description: "Aplico práticas de segurança desde o início, incluindo autenticação, proteção de dados e validação adequada das informações.",
     color: "from-green-500 to-emerald-500"
   },
   {
     icon: FiZap,
     title: "Performance Otimizada",
-    description: "Código eficiente, lazy loading, cache inteligente e métricas de performance como prioridade.",
+    description: "Procuro melhorar eficiência através de boas práticas de desenvolvimento, otimização de carregamento e utilização inteligente de recursos.",
     color: "from-orange-500 to-red-500"
   },
   {
     icon: FiCode,
     title: "Clean Code",
-    description: "Código limpo, testável e de fácil manutenção seguindo princípios SOLID e boas práticas.",
+    description: "Priorizo código legível, organizado e sustentável seguindo princípios como SOLID e boas práticas de engenharia.",
     color: "from-indigo-500 to-purple-500"
   },
   {
     icon: FiGitBranch,
     title: "CI/CD & DevOps",
-    description: "Automação de testes, integração contínua e deployment com Docker e pipelines configuradas.",
+    description: "Utilizo ferramentas modernas para automatizar processos de desenvolvimento, testes e deployment.",
     color: "from-gray-700 to-gray-900"
   }
 ];
@@ -65,8 +65,7 @@ export const EngineeringApproach = () => {
             transition={{ delay: 0.1 }}
             className="mx-auto max-w-2xl text-sm text-gray-600 sm:text-base"
           >
-            Não se trata apenas de escrever código que funciona. Trata-se de construir 
-            sistemas que resistem ao tempo, escalam com o negócio e entregam valor real.
+            Mais do que escrever código funcional, procuro construir sistemas organizados, seguros e preparados para evoluir com novas necessidades.
           </motion.p>
         </div>
 

@@ -8,34 +8,34 @@ import {
 
 export const mySelf = [
   {
-    title: "Engenheiro de Software Full-Stack",
-    info: "Desenvolvedor com experiência em todas as camadas de uma aplicação - do frontend ao backend, da modelação de dados ao deploy. Especializado em React, Spring Boot e arquiteturas escaláveis.",
+    title: "Desenvolvedor Full-Stack",
+    info: "Desenvolvedor com experiência nas diferentes camadas de uma aplicação, desde interfaces frontend até APIs backend, modelação de dados e processos de deploy. Trabalho com React, Spring Boot e boas práticas para criar sistemas organizados e evolutivos.",
     icon: FiCode,
     stats: "Full-Stack Developer",
-    highlight: "Todas as camadas"
+    highlight: "Desenvolvimento Full-Stack"
   },
   {
-    title: "Arquiteto de Soluções Offline-First",
-    info: "Especialista em sistemas que funcionam onde a internet é instável. Arquiteturas com sincronização inteligente, cache local e resiliência - levando tecnologia a quem mais precisa.",
+    title: "Desenvolvedor de Soluções Offline-First",
+    info: "Desenvolvo soluções pensadas para ambientes com conectividade limitada, utilizando estratégias como cache local, armazenamento offline e sincronização inteligente para criar aplicações mais resilientes.",
     icon: FiLayers,
-    stats: "Offline-first Expert",
-    highlight: "Arquitetura escalável"
+    stats: "Offline-First Development",
+    highlight: "Arquitetura Offline-First"
   },
   {
     title: "Focado em Impacto Real",
-    info: "Cada projeto que construo resolve um problema concreto. Do EduGestor (gestão escolar offline) ao SecureVault (segurança digital) - tecnologia deve ser acessível e transformadora.",
+    info: "Cada projeto desenvolvido procura resolver problemas reais através da tecnologia. Desde sistemas educacionais offline até aplicações focadas em segurança digital, acredito em criar soluções úteis e acessíveis.",
     icon: FiTarget,
-    stats: "Tech for Good",
+    stats: "Tecnologia com Impacto",
     highlight: "Projetos com propósito"
   }
 ];
 
 // Dados para a secção de impacto
 export const impactMetrics = [
-  { value: "5+", label: "Projetos em Produção", icon: FiGlobe },
+  { value: "5+", label: "Projetos Desenvolvidos", icon: FiGlobe },
   { value: "React", label: "Spring Boot", icon: FiServer },
   { value: "100%", label: "Código Próprio", icon: FiZap },
-  { value: "3+", label: "Anos de Experiência", icon: FiAward }
+  { value: "3+", label: "Anos de Desenvolvimento", icon: FiAward }
 ];
 
 // Timeline profissional
@@ -55,7 +55,7 @@ export const timeline = [
   {
     year: "2025",
     title: "BaluarteInfo",
-    description: "Desenvolvimento fullstack com Spring Boot e ReactJS, APIs REST e modelação de bases de dados",
+    description: "Desenvolvimento full-stack com Spring Boot e ReactJS, APIs REST e modelação de bases de dados",
     type: "web"
   },
   {
@@ -69,11 +69,11 @@ export const timeline = [
 // Informações profissionais para a secção "Quem Sou"
 export const professionalInfo = {
   name: "Leovigildo João",
-  role: "Engenheiro de Software Full-Stack",
+  role: "Desenvolvedor Full-Stack",
   location: "Luanda, Angola",
-  summary: "Engenheiro de software full-stack com experiência em React, Spring Boot, Flutter e arquiteturas offline-first. Focado em construir sistemas robustos, escaláveis e com impacto real. Especialista em resolver problemas complexos e transformar ideias em produtos funcionais.",
-  mission: "Construir tecnologia que funciona para todos, independentemente da conectividade ou localização.",
-  careerObjective: "Contribuir para equipas que constroem soluções escaláveis e com impacto social, aplicando boas práticas de arquitetura e engenharia de software.",
+  summary: "Desenvolvedor full-stack com experiência prática no desenvolvimento de aplicações web e mobile utilizando React, Spring Boot, Flutter e arquiteturas offline-first. Focado em criar sistemas robustos, seguros e escaláveis, aplicando boas práticas de engenharia de software para transformar ideias em soluções funcionais.",
+  mission: "Criar tecnologia acessível e confiável, capaz de gerar impacto mesmo em ambientes com diferentes limitações.",
+  careerObjective: "Contribuir para equipas de engenharia que desenvolvem soluções escaláveis, aplicando boas práticas de arquitetura, qualidade de código e evolução contínua.",
   technologies: ["React", "TypeScript", "Spring Boot", "Java", "Flutter", "Docker", "PostgreSQL", "Supabase"],
   experience: "3+ anos"
 };

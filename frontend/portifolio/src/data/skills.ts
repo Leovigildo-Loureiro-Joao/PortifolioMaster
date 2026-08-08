@@ -17,7 +17,7 @@ export const hardSkills = [
   { 
     name: "Java", 
     icon: FaJava,
-    level: 90, // percentagem
+    level: "Avançado", // nível de proficiência
     category: "backend",
     color: "#007396",
     projects: ["AudioLearn", "Portfolio Vision"]
@@ -25,7 +25,7 @@ export const hardSkills = [
   { 
     name: "Spring Boot", 
     icon: SiSpring,
-    level: 85,
+    level: "Intermédio-Avançado",
     category: "backend",
     color: "#6DB33F",
     projects: ["AudioLearn", "Portfolio Vision"]
@@ -33,7 +33,7 @@ export const hardSkills = [
   { 
     name: "React", 
     icon: FaReact,
-    level: 90,
+    level: "Avançado",
     category: "frontend",
     color: "#61DAFB",
     projects: ["EduGestor", "AudioLearn", "Portfolio Vision"]
@@ -41,7 +41,7 @@ export const hardSkills = [
   { 
     name: "TypeScript", 
     icon: SiTypescript,
-    level: 85,
+    level: "Intermédio-Avançado",
     category: "frontend",
     color: "#3178C6",
     projects: ["EduGestor", "AudioLearn", "Portfolio Vision"]
@@ -49,7 +49,7 @@ export const hardSkills = [
   { 
     name: "Flutter", 
     icon: SiFlutter,
-    level: 80,
+    level: "Intermédio",
     category: "mobile",
     color: "#02569B",
     projects: ["SecureVault"]
@@ -57,7 +57,7 @@ export const hardSkills = [
   { 
     name: "Dart", 
     icon: SiDart,
-    level: 80,
+    level: "Intermédio",
     category: "mobile",
     color: "#0175C2",
     projects: ["SecureVault"]
@@ -65,7 +65,7 @@ export const hardSkills = [
   { 
     name: "PostgreSQL", 
     icon: SiPostgresql,
-    level: 75,
+    level: "Intermédio",
     category: "database",
     color: "#4169E1",
     projects: ["Portfolio Vision", "AudioLearn"]
@@ -73,7 +73,7 @@ export const hardSkills = [
   { 
     name: "Supabase", 
     icon: SiSupabase,
-    level: 85,
+    level: "Intermédio-Avançado",
     category: "database",
     color: "#3ECF8E",
     projects: ["EduGestor"]
@@ -81,7 +81,7 @@ export const hardSkills = [
   { 
     name: "Docker", 
     icon: FaDocker,
-    level: 70,
+    level: "Intermédio",
     category: "devops",
     color: "#2496ED",
     projects: ["Portfolio Vision", "AudioLearn"]
@@ -89,7 +89,7 @@ export const hardSkills = [
   { 
     name: "Git", 
     icon: FaGitAlt,
-    level: 90,
+    level: "Avançado",
     category: "tools",
     color: "#F05032",
     projects: ["Todos"]
@@ -97,7 +97,7 @@ export const hardSkills = [
   { 
     name: "Tailwind", 
     icon: SiTailwindcss,
-    level: 85,
+    level: "Intermédio-Avançado",
     category: "frontend",
     color: "#06B6D4",
     projects: ["EduGestor", "AudioLearn"]
@@ -105,7 +105,7 @@ export const hardSkills = [
   { 
     name: "Dexie.js", 
     icon: FaDatabase,
-    level: 80,
+    level: "Intermédio",
     category: "database",
     color: "#4B8BBE",
     projects: ["EduGestor"]

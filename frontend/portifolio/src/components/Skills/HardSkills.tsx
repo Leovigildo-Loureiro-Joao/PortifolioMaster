@@ -31,8 +31,7 @@ export const HardSkills = () => {
             Hard Skills — <span className="text-secondry">Stack Técnica</span>
           </h2>
           <p className="mx-auto max-w-2xl text-sm text-gray-600 sm:text-base">
-            Tecnologias que domino para construir soluções robustas e escaláveis.
-            Passe o rato sobre cada ícone para ver detalhes.
+            Tecnologias utilizadas na construção dos meus projetos, aplicando-as de acordo com as necessidades de cada solução.
           </p>
         </div>
 
@@ -73,57 +72,27 @@ export const HardSkills = () => {
                   {/* Ícone com cor da tecnologia */}
                   <div className="relative mb-3 flex justify-center">
                     <div 
-                      className="flex translate-y-2 h-16 w-16 items-center justify-center rounded-full text-3xl transition-all duration-300 group-hover:scale-110 sm:text-4xl"
+                      className="flex h-16 w-16 items-center justify-center rounded-full text-3xl transition-all duration-300 group-hover:scale-110 sm:text-4xl"
                       style={{ color: skill.color }}
                     >
                       <skill.icon />
                     </div>
-                    
-                    {/* Nível de proficiência (círculo de progresso) */}
-                    <svg className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-20 -rotate-90">
-                      <circle
-                        cx="40"
-                        cy="40"
-                        r="36"
-                        fill="none"
-                        stroke="#e2e8f0"
-                        strokeWidth="4"
-                      />
-                      <circle
-                        cx="40"
-                        cy="40"
-                        r="36"
-                        fill="none"
-                        stroke={skill.color}
-                        strokeWidth="4"
-                        strokeDasharray={`${2 * Math.PI * 36}`}
-                        strokeDashoffset={`${2 * Math.PI * 36 * (1 - skill.level / 100)}`}
-                        className="transition-all duration-1000"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                    
-                    {/* Percentagem no centro (aparece no hover) */}
-                    <AnimatePresence>
-                      {hoveredSkill === skill.name && (
-                        <motion.div
-                          initial={{ opacity: 0, scale: 0.5 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          exit={{ opacity: 0, scale: 0.5 }}
-                          className="absolute inset-0 flex items-center justify-center"
-                        >
-                          <span className="text-base font-bold sm:text-lg" style={{ color: skill.color }}>
-                            {skill.level}%
-                          </span>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
                   </div>
 
                   {/* Nome da tecnologia */}
                   <h3 className="mb-2 text-center text-sm font-semibold text-gray-800 sm:text-base">
                     {skill.name}
                   </h3>
+
+                  {/* Nível de proficiência */}
+                  <div className="mb-3 flex justify-center">
+                    <span
+                      className="rounded-full px-3 py-1 text-[0.65rem] font-medium sm:text-xs"
+                      style={{ backgroundColor: `${skill.color}1A`, color: skill.color }}
+                    >
+                      {skill.level}
+                    </span>
+                  </div>
 
                   {/* Projetos associados (tooltip no hover) */}
                   <AnimatePresence>

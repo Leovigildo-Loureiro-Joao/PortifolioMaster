@@ -19,7 +19,7 @@ export const Home = () => {
                         <h1 className="pb-2 text-[clamp(1.9rem,4.6vw,3.5rem)] font-bold leading-[1.08]">
                             <span className="text-primary">{professionalInfo.role}</span>
                             <br />
-                            que constrói{" "}
+                            focado em{" "}
                             <span className="text-secondry">
                                 sistemas escaláveis
                             </span>
@@ -31,9 +31,9 @@ export const Home = () => {
                                 <Typewriter
                                     words={[
                                         "Spring Boot & React",
-                                        "Arquitetura Offline-First",
+                                        "Arquiteturas Offline-First",
                                         "Aplicações Seguras",
-                                        "Sistemas em Produção"
+                                        "Sistemas Bem Estruturados"
                                     ]}
                                     loop={0}
                                     cursor
@@ -91,10 +91,10 @@ export const Home = () => {
             {/* NOVA SECÇÃO: Highlights / Proof */}
             <div id="highlights" className="mt-12 grid grid-cols-2 gap-4 border-t border-white/10 pt-8 sm:mt-16 md:grid-cols-4">
                 {[
-                    { number: "5+", label: "Projetos em Produção" },
+                    { number: "5+", label: "Projetos Desenvolvidos" },
                     { number: "Full-Stack", label: "React + Spring Boot" },
-                    { number: "Offline", label: "Arquitetura First" },
-                    { number: "3+", label: "Anos de Experiência" }
+                    { number: "Offline-First", label: "Arquiteturas Resilientes" },
+                    { number: "3+", label: "Anos de Aprendizagem e Desenvolvimento" }
                 ].map((item, index) => (
                     <div key={index} className="text-center">
                         <div className="text-[clamp(1.25rem,2.1vw,1.7rem)] font-bold text-primary">{item.number}</div>
