@@ -47,16 +47,16 @@ export const timeline = [
     type: "mobile"
   },
   {
-    year: "2024",
+    year: "2025",
     title: "AudioLearn",
     description: "Plataforma TTS para aprendizagem de idiomas com ElevenLabs API",
     type: "web"
   },
   {
     year: "2025",
-    title: "KIAR - Backend Developer",
-    description: "Desenvolvimento backend com Spring Boot, APIs REST e modelação de bases de dados",
-    type: "work"
+    title: "BaluarteInfo",
+    description: "Desenvolvimento fullstack com Spring Boot e ReactJS, APIs REST e modelação de bases de dados",
+    type: "web"
   },
   {
     year: "2026",

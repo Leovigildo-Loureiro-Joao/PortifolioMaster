@@ -59,7 +59,7 @@ export const Header = () => {
         </button>
 
         <ul className={`
-          absolute left-0 top-full flex w-full flex-col gap-4 rounded-2xl bg-white/95 p-5 shadow-lg backdrop-blur-md transition-all duration-300 md:static md:w-auto md:flex-row md:items-center md:gap-8 md:rounded-none md:bg-transparent md:p-0 md:shadow-none md:backdrop-blur-none lg:gap-10
+          absolute left-0 justify-center top-full flex w-full flex-col gap-4 rounded-2xl bg-white/95 p-5 shadow-lg backdrop-blur-md transition-all duration-300 md:static md:w-auto md:flex-row md:items-center md:gap-8 md:rounded-none md:bg-transparent md:p-0 md:shadow-none md:backdrop-blur-none lg:gap-10
           ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 md:opacity-100 translate-y-4 md:translate-y-0 pointer-events-none md:pointer-events-auto'}
         `}>
           {links.map((item, key) => (
