@@ -34,7 +34,7 @@
   {
     "id": "sapphire-001",
     "img": "https://res.cloudinary.com/dh6xfyjxu/image/upload/v1760067398/placeholder-sapphire.png",
-    "url": "",
+    "url": "https://sapphire-soiree.vercel.app/",
     "nome": "Sapphire Soiree",
     "link": "https://github.com/leovigildo/sapphire-soiree",
     "mini_desc": "Sistema de convites de casamento online com RSVP e painel administrativo.",
@@ -44,7 +44,7 @@
     "abertura": "2026-07-01",
     "type": "WEB",
     "tecno": "[[\"React\", \"TypeScript\", \"Vite\", \"Supabase\", \"TanStack Router\", \"Tailwind\", \"Shadcn/UI\"]]",
-    "status": "paused",
+    "status": "testing",
     "create_at": "2026-07-01 10:00:00.000000+00"
   },
   {
